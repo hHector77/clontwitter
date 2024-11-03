@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <% if @tweet %>
+    <h2>Tweet de <%= @tweet.username %></h2>
+    <p><%= @tweet.description %></p>
 
-<%= render @tweet %>
-
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
-
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+    <%= link_to 'Editar', edit_tweet_path(@tweet), class: "btn btn-warning" %>
+    <%= link_to 'Eliminar', @tweet, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger" %>
+    <%= link_to 'Volver a los Tweets', tweets_path, class: "btn btn-secondary" %>
+  <% else %>
+    <p>Tweet no encontrado.</p>
+    <%= link_to 'Volver a los Tweets', tweets_path, class: "btn btn-secondary" %>
+  <% end %>
 </div>

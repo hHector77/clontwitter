@@ -62,3 +62,5 @@ gem 'kaminari'
 gem 'bootstrap', '~> 5.1.3'
 gem 'faker'
 
+
+gem "kaminari-bootstrap", "~> 3.0"

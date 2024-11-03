@@ -1,12 +1,17 @@
-<% content_for :title, "Editing tweet" %>
+<div class="container mt-5">
+  <h2 class="mb-4"><%= @tweet.new_record? ? "Nuevo Tweet" : "Editar Tweet" %></h2>
 
-<h1>Editing tweet</h1>
+  <%= form_with(model: @tweet, local: true, class: "shadow-sm p-4 rounded bg-light") do |form| %>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Escribe tu tweet aquí..." %>
+    </div>
 
-<%= render "form", tweet: @tweet %>
+    <div class="mb-3">
+      <%= form.label :username, class: "form-label" %>
+      <%= form.text_field :username, class: "form-control", placeholder: "Nombre de usuario" %>
+    </div>
 
-<br>
-
-<div>
-  <%= link_to "Show this tweet", @tweet %> |
-  <%= link_to "Back to tweets", tweets_path %>
+    <%= form.submit @tweet.new_record? ? "Crear Tweet" : "Actualizar Tweet", class: "btn btn-primary" %>
+  <% end %>
 </div>

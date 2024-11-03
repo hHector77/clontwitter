@@ -13,4 +13,59 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+ // Importar Bootstrap y personalizar estilos adicionales
+// Importar Bootstrap y personalizar estilos adicionales
+@import "bootstrap";
+
+
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 720px;
+}
+
+.list-group-item {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #ffffff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #ffffff;
+}
+
+/*  igualar tamaño de botones */
+.btn-custom-size {
+  width: 80px; 
+  height: 36px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; 
+}
+
+.form-control {
+  border-radius: 0.25rem;
+  box-shadow: none;
+}
