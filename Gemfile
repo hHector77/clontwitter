@@ -59,7 +59,7 @@ group :test do
   gem "selenium-webdriver"
 end
 gem 'kaminari'
-gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap', '~> 5.3.3'
 gem 'faker'
 
 
