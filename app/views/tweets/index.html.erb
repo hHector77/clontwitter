@@ -1,17 +1,26 @@
-<h1>Tweets</h1>
+<div class="container">
+  <h1 class="mt-4">Clon de Twitter</h1>
 
-<%= form_with url: tweets_path, method: :get, local: true do %>
-  <%= label_tag :search, "Buscar Tweets:" %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Buscar" %>
-<% end %>
+  <%= form_with url: tweets_path, method: :get, local: true, class: "mb-4" do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar Tweets..." %>
+      <div class="input-group-append">
+        <%= submit_tag "Buscar", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 
-<%= link_to 'Nuevo Tweet', new_tweet_path %>
+  <%= link_to 'Nuevo Tweet', new_tweet_path, class: "btn btn-success mb-3" %>
 
-<% @tweets.each do |tweet| %>
-  <p><strong><%= tweet.username %></strong>: <%= tweet.description %></p>
-  <%= link_to 'Editar', edit_tweet_path(tweet) %> |
-  <%= link_to 'Eliminar', tweet, method: :delete, data: { confirm: '¿Estás seguro?' } %>
-<% end %>
+  <% @tweets.each do |tweet| %>
+    <div class="tweet card mb-2">
+      <div class="card-body">
+        <p><strong><%= tweet.username %></strong>: <%= tweet.description %></p>
+        <%= link_to 'Editar', edit_tweet_path(tweet), class: "btn btn-warning btn-sm" %> |
+        <%= link_to 'Eliminar', tweet, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  <% end %>
 
-<%= paginate @tweets %>
+  <%= paginate @tweets, theme: 'bootstrap' %>
+</div>
