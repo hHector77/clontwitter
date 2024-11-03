@@ -60,3 +60,5 @@ group :test do
 end
 gem 'kaminari'
 gem 'bootstrap', '~> 5.1.3'
+gem 'faker'
+
